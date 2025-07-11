@@ -1,6 +1,12 @@
 <template>
   <div ref="popover" class="relative">
-    <div class="cursor-pointer w-fit h-fit m-0 p-0" @click="isOpen = !isOpen">
+    <div
+      class="cursor-pointer w-fit h-fit m-0 p-0"
+      aria-haspopup="true"
+      :aria-expanded="isOpen"
+      :aria-controls="props.ariaId"
+      @click="isOpen = !isOpen"
+    >
       <slot />
     </div>
 
@@ -14,9 +20,11 @@
     >
       <div
         v-if="isOpen"
+        :id="props.ariaId"
         class="absolute left-1/2 mt-2 bg-gray-950 border border-gray-700 rounded-lg shadow-lg py-2 px-4 z-101 min-w-[200px]"
         :class="popoverPositionClass"
         style="transform: translateX(-50%);"
+        role="tooltip"
       >
         <p v-if="props.label" class="text-white text-center">
           {{ props.label }}
@@ -32,6 +40,7 @@ const props = withDefaults(defineProps<{
   position?: 'top' | 'bottom'
   outsideClose?: boolean
   label?: string
+  ariaId: string
 }>(), {
   position: 'top',
   outsideClose: false,
@@ -62,5 +71,3 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
 })
 </script>
-
-<style scoped></style>

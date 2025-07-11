@@ -4,7 +4,7 @@
       class="px-4 py-2 w-full cursor-pointer bg-gray-950 text-white border border-gray-700 rounded-lg transition outline-2 outline-transparent focus:outline-emerald-500 flex items-center justify-between"
       role="combobox"
       :aria-expanded="isOpen ? 'true' : 'false'"
-      :aria-controls="uniqueId"
+      :aria-controls="props.ariaId"
       :aria-activedescendant="selectedOption ? selectedOption.value : ''"
       @click="isOpen = !isOpen"
     >
@@ -30,7 +30,7 @@
         class="absolute z-100 mt-2 w-full bg-gray-950 border border-gray-700 rounded-lg shadow-lg p-2 max-h-[240px] overflow-y-scroll"
       >
         <TransitionGroup
-          :id="uniqueId"
+          :id="props.ariaId"
           tag="ul"
           class="space-y-1"
           enter-active-class="transition duration-200"
@@ -91,6 +91,7 @@ const props = withDefaults(defineProps<{
   selected?: Option
   searchable?: boolean
   searchPlaceholder?: string
+  ariaId: string
 }>(), {
   placeholder: 'Select an option',
   searchable: false,
@@ -102,8 +103,6 @@ const selectedOption = ref<Option | null>(props.selected || null)
 const options = ref<Option[]>(props.options)
 const filterQuery = ref('')
 const dropdown = ref<HTMLElement | null>(null)
-
-const uniqueId = `select-${Math.random().toString(36).slice(2, 10)}`
 
 const emit = defineEmits<{
   (e: 'select', value: Option): void

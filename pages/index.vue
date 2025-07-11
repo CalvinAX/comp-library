@@ -5,16 +5,14 @@
     >
 
       <div class="flex items-center justify-center relative z-10">
-        <Popover :outside-close="true" position="bottom">
+        <Button @click="switchBool">
+          Open Modal
+        </Button>
+        <Modal :open="boolRef" title="Test Modal" @close="boolRef = false">
           <p class="text-white">
-            Test Text
+            Cool little test modal.
           </p>
-          <template #content>
-            <p class="text-blue-500 text-nowrap">
-              This is a cool popover with custom content!
-            </p>
-          </template>
-        </Popover>
+        </Modal>
       </div>
       <Button class="mt-10" @click="console.log(inputValue)">
         Show Value
@@ -27,6 +25,11 @@
 
 <script setup lang="ts">
 const inputValue: Ref<any> = ref(null)
+const boolRef: Ref<boolean> = ref(false)
+
+function switchBool() {
+  boolRef.value = !boolRef.value
+}
 
 const options = [
   {
