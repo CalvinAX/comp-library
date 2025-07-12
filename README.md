@@ -12,3 +12,4 @@
 # Notes
 
 - Popover: label prop takes priority over <template #content>
+- Color Picker: uses SCSS, and nuxt-color-picker module

@@ -4,17 +4,15 @@
       class="min-w-4/5 min-h-[460px] border border-gray-700 rounded-lg p-10 flex flex-col justify-center items-center relative bg-gray-950"
     >
 
-      <div class="flex items-center justify-center relative z-10">
-        <Button @click="switchBool">
-          Open Modal
-        </Button>
-        <Modal :open="boolRef" title="Test Modal" @close="boolRef = false">
-          <p class="text-white">
-            Cool little test modal.
-          </p>
-        </Modal>
+      <div class="flex flex-col items-center justify-center relative z-10">
+        <BaseColorPicker v-model="inputValue">
+          <Button>Select Color</Button>
+        </BaseColorPicker>
+        <p class="text-white mt-5">
+          This Is Some <span :style="`color: ${inputValue?.hex};`">Cool Colored Text</span>
+        </p>
       </div>
-      <Button class="mt-10" @click="console.log(inputValue)">
+      <Button class="mt-10" @click="showState">
         Show Value
       </Button>
 
@@ -29,6 +27,12 @@ const boolRef: Ref<boolean> = ref(false)
 
 function switchBool() {
   boolRef.value = !boolRef.value
+}
+
+function showState() {
+  console.log('CURRENT STATE:')
+  console.log('inputValue: ', inputValue.value)
+  console.log('boolRef: ', boolRef.value)
 }
 
 const options = [
