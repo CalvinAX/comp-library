@@ -4,17 +4,16 @@
       class="min-w-4/5 min-h-[460px] border border-gray-700 rounded-lg p-10 flex flex-col justify-center items-center relative bg-gray-950"
     >
 
-      <div class="flex flex-col items-center justify-center relative z-10">
-        <BaseColorPicker v-model="inputValue">
-          <Button>Select Color</Button>
-        </BaseColorPicker>
-        <p class="text-white mt-5">
-          This Is Some <span :style="`color: ${inputValue?.hex};`">Cool Colored Text</span>
-        </p>
+      <div class="flex flex-col items-center justify-center relative z-10 w-4/5">
+        <Checkbox id="test" v-model="boolRef" />
       </div>
       <Button class="mt-10" @click="showState">
         Show Value
       </Button>
+      <div class="mt-5 text-white">
+        {{ inputValue }}
+        {{ boolRef }}
+      </div>
 
       <div ref="grid" class="absolute inset-0 grid-bg pointer-events-none z-1" />
     </div>
@@ -22,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-const inputValue: Ref<any> = ref(null)
+const inputValue: Ref<any> = ref(0)
 const boolRef: Ref<boolean> = ref(false)
 
 function switchBool() {
