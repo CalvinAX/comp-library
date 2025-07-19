@@ -1,11 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/icon', 'nuxt-color-picker'],
+  modules: ["@nuxt/eslint", "@nuxt/icon", "nuxt-color-picker", "nuxt-shiki"],
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
-  compatibilityDate: '2025-05-15',
+  css: ["~/assets/css/main.css"],
+  compatibilityDate: "2025-05-15",
   vite: {
     plugins: [tailwindcss()],
   },
@@ -14,4 +14,7 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
-})
+  shiki: {
+    bundledThemes: ["catppuccin-frappe", "catppuccin-macchiato"],
+  },
+});

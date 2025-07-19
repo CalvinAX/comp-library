@@ -3,7 +3,7 @@
     type="button"
     class="px-4 py-2 rounded-lg transition outline-2 outline-transparent
     focus-visible:outline-2 focus-visible:outline-brand-800 flex items-center justify-center gap-2"
-    :class="[classes, props.iconPosition === 'left' ? 'flex-row' : 'flex-row-reverse']"
+    :class="[classes, props.iconPosition === 'right' ? 'flex-row-reverse' : 'flex-row']"
     :disabled="props.state === 'disabled' || props.state === 'loading'"
     :aria-disabled="props.state === 'disabled' || props.state === 'loading' ? 'true' : undefined"
     :aria-busy="props.state === 'loading' ? 'true' : undefined"

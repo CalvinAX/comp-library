@@ -1,11 +1,10 @@
 <template>
   <div class="min-w-screen min-h-screen flex justify-center items-center bg-gray-950">
     <div
-      class="min-w-4/5 min-h-[460px] border border-gray-700 rounded-lg p-10 flex flex-col justify-center items-center relative bg-gray-950"
-    >
+      class="min-w-4/5 min-h-[460px] border border-gray-700 rounded-lg p-10 flex flex-col justify-center items-center relative bg-gray-950">
 
       <div class="flex flex-col items-center justify-center relative z-10 w-4/5">
-        <Checkbox id="test" v-model="boolRef" />
+        <CodeHighlighter />
       </div>
       <Button class="mt-10" @click="showState">
         Show Value

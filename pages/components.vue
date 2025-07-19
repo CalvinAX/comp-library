@@ -9,6 +9,14 @@
           <Icon name="lucide:arrow-left" size="18" />
           Home
         </NuxtLink>
+        <div class="flex items-center">
+          <Button class="rounded-r-none" icon="lucide:moon">
+            Dark
+          </Button>
+          <Button class="rounded-l-none" icon="lucide:sun" icon-position="right">
+            Light
+          </Button>
+        </div>
       </div>
       <hr class="border-gray-700 w-full">
     </div>
@@ -161,6 +169,33 @@
           Icon:
           <Icon v-if="selectValue?.icon" :name="selectValue?.icon" size="18" />
         </p>
+      </div>
+      <div
+        class="flex flex-col gap-3 items-center justify-center bg-gray-950 border border-gray-700 p-4 rounded-lg relative z-10"
+      >
+        <Drawer position="left">
+          <template #trigger>
+            <Button state="none" icon="lucide:menu" icon-position="left">
+              Open Drawer
+            </Button>
+          </template>
+
+          <p class="text-white">
+            Drawer Content SLOT
+          </p>
+        </Drawer>
+
+        <Drawer position="right" :width="500">
+          <template #trigger>
+            <Button state="none" icon="lucide:menu" icon-position="right">
+              Open Drawer
+            </Button>
+          </template>
+
+          <p class="text-white">
+            Drawer Content SLOT
+          </p>
+        </Drawer>
       </div>
     </div>
     <div ref="grid" class="absolute inset-0 grid-bg pointer-events-none z-1" />
