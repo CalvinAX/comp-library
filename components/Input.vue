@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex items-center justify-center bg-gray-950 border border-gray-700 text-white rounded-lg transition overflow-hidden outline-2"
-    :class="[isFocused ? 'outline-emerald-500' : 'outline-transparent']"
+    :class="[isFocused ? 'outline-brand-500' : 'outline-transparent']"
   >
     <Icon
       v-if="props.icon && iconPosition === 'left'"

@@ -4,7 +4,6 @@
     <div
       ref="sliderRef"
       class="relative w-full h-8 flex items-center select-none rounded-lg"
-      :class="isFocused ? 'outline-emerald-500 outline-2' : 'outline-transparent'"
       role="slider"
       :aria-valuenow="modelValue"
       :aria-valuemin="min"
@@ -17,17 +16,14 @@
       @mousedown="(e) => { if (e.button === 0) setValueFromPosition(e.clientX) }"
       @touchstart="(e) => setValueFromPosition(e.touches[0].clientX)"
     >
+      <div class="absolute left-0 top-1/2 w-full h-2 bg-gray-800 rounded-lg" style="transform: translateY(-50%)" />
       <div
-        class="absolute left-0 top-1/2 w-full h-2 bg-gray-800 rounded-lg"
-        style="transform: translateY(-50%)"
-      />
-      <div
-        class="absolute top-1/2 h-2 bg-linear-to-r from-emerald-700 to-emerald-500 rounded-lg"
+        class="absolute top-1/2 h-2 bg-linear-to-r from-brand-700 to-brand-500 rounded-lg"
         :style="{ left: '0', width: percent + '%', transform: 'translateY(-50%)' }"
       />
       <button
         type="button"
-        class="absolute top-1/2 w-5 h-5 bg-emerald-500 border-2 border-gray-700 rounded-full flex items-center justify-center shadow transition"
+        class="absolute top-1/2 w-5 h-5 bg-brand-500 border-2 border-gray-700 rounded-full flex items-center justify-center shadow transition"
         :style="{ left: `calc(${percent}% - 12px)`, transform: 'translateY(-50%)' }"
         :aria-label="ariaLabel"
         :aria-valuenow="modelValue"

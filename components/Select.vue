@@ -1,7 +1,7 @@
 <template>
   <div ref="dropdown" class="relative min-w-[200px]">
     <button
-      class="px-4 py-2 w-full cursor-pointer bg-gray-950 text-white border border-gray-700 rounded-lg transition outline-2 outline-transparent focus:outline-emerald-500 flex items-center justify-between"
+      class="px-4 py-2 w-full cursor-pointer bg-gray-950 text-white border border-gray-700 rounded-lg transition outline-2 outline-transparent focus:outline-brand-500 flex items-center justify-between"
       role="combobox"
       :aria-expanded="isOpen ? 'true' : 'false'"
       :aria-controls="props.ariaId"
@@ -45,7 +45,7 @@
             <input
               v-model="filterQuery"
               type="text"
-              class="px-4 py-2 border border-gray-700 text-white rounded-lg w-full outline-2 outline-transparent focus-visible:outline-emerald-500"
+              class="px-4 py-2 border border-gray-700 text-white rounded-lg w-full outline-2 outline-transparent focus-visible:outline-brand-500"
               :placeholder="props.searchPlaceholder"
               @input="filterOptions"
             >
@@ -62,7 +62,7 @@
             :aria-selected="selectedOption?.value === option.value"
           >
             <button
-              class="py-2 px-4 cursor-pointer w-full text-start transition hover:bg-gray-800 rounded-lg flex items-center gap-2 text-nowrap outline-2 outline-transparent focus-visible:outline-emerald-500"
+              class="py-2 px-4 cursor-pointer w-full text-start transition hover:bg-gray-800 rounded-lg flex items-center gap-2 text-nowrap outline-2 outline-transparent focus-visible:outline-brand-500"
               :class="{ 'bg-gray-800': selectedOption?.value === option.value }"
               @click="selectOption(option)"
             >

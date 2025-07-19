@@ -30,7 +30,7 @@
             {{ props.title }}
           </p>
           <button
-            class="text-white hover:text-emerald-500 transition cursor-pointer flex items-center justify-center"
+            class="text-white hover:text-brand-500 transition cursor-pointer flex items-center justify-center"
             @click="$emit('close', false)"
           >
             <Icon name="lucide:x" size="18px" />

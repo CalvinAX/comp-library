@@ -68,48 +68,48 @@ const emit = defineEmits<{
 
 <style lang="scss">
 .CP-block {
-    background-color: var(--color-gray-950) !important;
+  background-color: var(--color-gray-950) !important;
+  border: 1px solid var(--color-gray-700);
+
+  .CP--box-border {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .CP-block__pickers__saturation,
+  .CP-canvas-picker__alpha,
+  .CP-block__pickers__hue,
+  .CP-block__rows__preview {
     border: 1px solid var(--color-gray-700);
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden !important;
+  }
 
-    .CP--box-border {
-        position: relative;
-        border-radius: var(--radius-lg);
-        overflow: hidden;
+  .CP-box {
+    border: 1px solid var(--color-gray-700);
+    border-radius: var(--radius-lg);
+    transition: var(--default-transition-timing-function) var(--default-transition-duration);
+
+    .CP-box__value {
+      background-color: var(--color-gray-950);
+      color: var(--color-white);
     }
 
-    .CP-block__pickers__saturation,
-    .CP-canvas-picker__alpha,
-    .CP-block__pickers__hue,
-    .CP-block__rows__preview {
-        border: 1px solid var(--color-gray-700);
-        border-radius: var(--radius-lg) !important;
-        overflow: hidden !important;
+    .CP-box__name {
+      background-color: var(--color-gray-900);
+      border-right: 1px solid var(--color-gray-700);
+      color: var(--color-white);
     }
 
-    .CP-box {
-        border: 1px solid var(--color-gray-700);
-        border-radius: var(--radius-lg);
-        transition: var(--default-transition-timing-function) var(--default-transition-duration);
-
-        .CP-box__value {
-            background-color: var(--color-gray-950);
-            color: var(--color-white);
-        }
-
-        .CP-box__name {
-            background-color: var(--color-gray-900);
-            border-right: 1px solid var(--color-gray-700);
-            color: var(--color-white);
-        }
-
-        &:focus-within {
-            border-color: var(--color-emerald-500) !important;
-        }
+    &:focus-within {
+      border-color: var(--color-brand-500) !important;
     }
+  }
 
-    .CP-colors__items__item {
-        border-radius: calc(infinity * 1px);
-    }
+  .CP-colors__items__item {
+    border-radius: calc(infinity * 1px);
+  }
 }
 
 /*--colorPickerBg
